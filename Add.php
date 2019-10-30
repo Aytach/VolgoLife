@@ -8,15 +8,10 @@
             $description = htmlspecialchars($_POST['description']);
             $email = htmlspecialchars($_POST['email']);
             $leadtime = htmlspecialchars($_POST['leadtime']);
-
-            $mysqli = new mysqli('localhost', 'root', '', 'volgolife');
-            if($mysqli->connect_errno)
-            {
-              echo 'Ошибка в подключении к базе данных ('.$mysqli->connect_errno().'): '.$mysqli->connect_error();
-              exit();
-            }
-
-            $result = $mysqli->query( "INSERT INTO `advertisements` ( `name`, `price`, `description`, `leadtime`, `email`) VALUES ( '$name', '$price', '$description', '$leadtime', '$email')");
+            
+            require_once 'db.php';
+            
+            $result = mysqli_query($link, "INSERT INTO `advertisements` ( `name`, `price`, `description`, `leadtime`, `email`) VALUES ( '$name', '$price', '$description', '$leadtime', '$email')");
 
             if($result == 'true')        
                 header("Location: Stends.php" );
@@ -25,6 +20,6 @@
                 header("Location: AddAdvertisement.php" );
             }
         } 
-        else die('Не туда попали!');   	   
+        else die('Не правильный вход!');   	   
     }
 ?> 
