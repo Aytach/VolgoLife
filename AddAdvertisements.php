@@ -39,8 +39,14 @@
 			    var x = document.forms["myForm"]["name"].value;
 			    if (x == "") 
 			    {
-			        alert("Необходимо ввести имя!");
+			        alert("Необходимо ввести название!");
 			        return false;
+			    }
+			    var adr_pattern = /\S/;
+			    if(adr_pattern.test(x) == false)
+			    {
+					alert("Вы ввели некорректное название!");
+					return false;
 			    }
 
 
@@ -64,7 +70,12 @@
 			        alert("Необходимо ввести короткое описание товара!");
 			        return false;
 			    }
-
+			    var adr_pattern = /\S/;
+			    if(adr_pattern.test(x) == false)
+			    {
+					alert("Вы ввели некорректное описание товара!");
+					return false;
+			    }
 
 			    var x = document.forms["myForm"]["leadtime"].value;
 			    if (x == "") 
@@ -98,7 +109,7 @@
 		</script>
 		<form novalidate name="myForm" action="Add.php" onsubmit="return validateForm()" method="post" >
 			<br>
-			<h4>Добавьте свое обьявление!</h4>
+			<h4>Добавьте свое объявление!</h4>
 			<br>
 			<label for="name">Название:</label>
 			<br>
@@ -122,8 +133,11 @@
 			<br>
 			<br>
 			<input type="submit" name="add" id="click"  class="btn btn-success" value="Отправить"></input>
+
+			<input type = "hidden" name = "security" value = "<?php echo md5('AddAdvertisement.php'.'Add.php'); ?>"></input>
 			
 		</form>
 	</div>
 </div>
 </div>
+
