@@ -94,15 +94,7 @@
 
     <?php
     
-    $link = mysqli_connect('localhost', 'root', '', 'volgolife');
-    mysqli_query($link, "SET NAMES utf8");
-    if(mysqli_connect_errno())
-    {
-      echo 'Ошибка в подключении к базе данных ('.mysqli_connect_errno().'): '.mysqli_connect_error();
-      exit();
-    }
-
-    function get_posts()
+      function get_posts()
     {
       global $link;
 
@@ -121,7 +113,10 @@
 <h1>Все обьявления:</h1>
 </div>
 
-  <?php  $posts = get_posts(); ?>
+  <?php 
+   require_once 'db.php';
+
+   $posts = get_posts(); ?>
 <div class="row">
       <div class="col-md-9">
   <?php foreach($posts as $post)
