@@ -1,0 +1,32 @@
+
+input,textarea
+{
+    width: 600px;
+    margin: 10 10 10 0;
+}
+
+.d
+{
+    text-align: center;  
+}
+
+.brd 
+{
+    border: 2px solid #2F4F4F; 
+    background: #F5F5F5; 
+    padding: 30px; 
+}
+
+.cont
+{
+    margin-left: 25%; e
+    margin-top: 5%; 
+    width: 700px;
+}
+
+.z
+{
+    border: 1px solid green;
+    margin-left: 515px;
+    margin-top: 25px;
+}
