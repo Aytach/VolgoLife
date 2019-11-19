@@ -1,11 +1,20 @@
 <?php
-	$link = mysqli_connect('localhost', 'root', '', 'volgolife');
 
-    mysqli_query($link, "SET NAMES utf8");
+$host = 'localhost';
+$db = 'volgolife';
+$user = 'root';
+$pass = '';
+$charset = 'utf8';
 
-    if(mysqli_connect_errno())
-    {
-      echo 'Ошибка в подключении к базе данных ('.mysqli_connect_errno().'): '.mysqli_connect_error();
-      exit();
-    }
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [//массив опций
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+];
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+    throw new \PDOException($e->getMessage(), (int) $e->getCode());
+}
 ?>
