@@ -1,15 +1,11 @@
 <!doctype html>
 <html lang="ru">
-    <?php
-    session_start();
-    ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>  
     <head>
-        <link href="style_Stends.css" rel="stylesheet">
         <meta charset="utf-8" /> 
         <title>Stends</title>
         <link rel="stylesheet" href="css/bootstrap.css">
@@ -18,10 +14,16 @@
 
         <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
-        <!-- Custom styles for this template -->
+
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-        <!-- Custom styles for this template -->
+
         <link href="blog.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link href="css/style_Stends.css" rel="stylesheet">
+        
+        <!--ПОИСК-->
+        <script type="text/javascript" src="js/stends_search_ajax.js">  </script>   
+
     </head>
     <body>
         <div class="container">
@@ -56,8 +58,21 @@
                     </div>
                 </div>
             </header>
-            <div class="jumbotron p-4 p-md-5 "style="margin-top: 50px;">
+              <div class="form-group p-2">  
+                <div class="input-group">
+
+                <!-- ПОИСК-->
+    
+                  <span class="input-group-addon">Search </span>  
+                  <input type="text" name="search" id="search_text" placeholder="Search by Advertisements Name" class="form-control"/>
+                </div>  
+              </div>  
+              <br />  
+              <div id="result"></div> 
+              
+            <div class="jumbotron p-2 p-md-5">
                 <div class="col-md-12 px-23">
+                 
                     <h1 class="display-6 font-italic h1">Стенды выставки таблички</h1>
                     <p class="lead my-3 h1">Изготовление информационных стендов в Волгограде</p>
                     <center><a class="btn btn-sm btn-outline-secondary" href="AddAdvertisement.php">Добавить обьявление</a></center>
