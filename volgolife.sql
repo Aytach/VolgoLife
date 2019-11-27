@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 19 2019 г., 20:36
+-- Время создания: Ноя 27 2019 г., 19:09
 -- Версия сервера: 10.1.30-MariaDB
 -- Версия PHP: 7.2.1
 
@@ -71,7 +71,9 @@ CREATE TABLE `advertisements` (
 INSERT INTO `advertisements` (`id_advertisements`, `name`, `price`, `description`, `leadtime`, `email`, `id_customer`) VALUES
 (22, 'Информационные стенды', 3350, 'Изготовление различных стендов на заказ', '07:15:00', 'stands@posters.org', 54),
 (23, 'Стенды для школ', 5670, 'Интересные, яркие и познавательные стенды только у нас. ', '14:35:00', 'stands@school1.org', 40),
-(24, 'Стенд для офиса', 4578, 'Качественный и недорогой стенд на заказ.', '16:35:00', 'stands@OfiH.org', NULL);
+(24, 'Стенд для офиса', 4578, 'Качественный и недорогой стенд на заказ.', '16:35:00', 'stands@OfiH.org', 57),
+(25, 'Стенды для вузов', 7600, 'На заказ за кротчайшее время', '05:35:00', 'desa@stends.com', 55),
+(26, 'Стенды на заказ', 7890, 'Очень быстро и качественно', '04:30:00', 'stend@lazy.com', 56);
 
 -- --------------------------------------------------------
 
@@ -91,8 +93,11 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id_customer`, `review`, `assessment`, `img`) VALUES
-(40, 'Хорошo', 8, 'uploads/123.jpeg'),
-(54, 'Замечательно!!!', 10, 'uploads/________________________________________.jpeg');
+(40, 'Хорошo', 8, 'uploads/frt45-ki.png'),
+(54, 'Замечательно!!!', 10, 'uploads/________________________________________.jpeg'),
+(55, 'Не понравился дизайн', 6, 'uploads/tyr59-khuj.png'),
+(56, 'Соответствует описанию', 10, 'uploads/123.jpeg'),
+(57, 'НЕ для офиса!!!', 2, 'uploads/________________________________333_-1.png');
 
 -- --------------------------------------------------------
 
@@ -125,8 +130,8 @@ INSERT INTO `orders` (`id_orders`, `number`, `reviews`, `assessment`) VALUES
 
 CREATE TABLE `users` (
   `id_users` int(11) NOT NULL,
-  `login` varchar(15) NOT NULL,
-  `password` varchar(15) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `data` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -138,7 +143,12 @@ INSERT INTO `users` (`id_users`, `login`, `password`, `data`) VALUES
 (2, 'alexey', 'alexey1212', 'Поздравляем с регистрацией! Вам предоставляется персональная скидка на экскурсию!'),
 (3, 'ivan', 'ivan1234', 'Скидка 15% на выставки!'),
 (4, 'mariya', 'masha1997', '25% специально для вас!'),
-(5, 'admin', '0987654321', 'Добро пожаловать Администратор');
+(5, 'admin', '0987654321', 'Добро пожаловать Администратор'),
+(24, 'marshmallows', '$2y$10$xCtIDsF3.xht2fLcj8wWE.VtTkqhpNGfO/hNByVALyLXUrLydF/OW', ''),
+(25, 'Aytach', '$2y$10$4wXi8RNrlOd3BbZJQa3mYO3aRt/rjAnXCNNiXLGFa7x5eKBcGGeE6', ''),
+(26, 'Aysel', '$2y$10$Mp4nAjc15PVIh3CHSLveQezWrTMRjeSQeZiPK5TI0lEWytKBSIct6', ''),
+(27, 'Aytac', '$2y$10$tPbAWzeyXGEmUlFhVxnvI.oSUcZEUQJA.r1x9eSBxU/NAINVlSIoq', ''),
+(28, 'a', '$2y$10$WY15I0t4LvVvP3W8dBk.PeqqIGIv3591w5riG.sBgq6a/MZFynNVO', '');
 
 --
 -- Индексы сохранённых таблиц
@@ -190,13 +200,13 @@ ALTER TABLE `advertisement`
 -- AUTO_INCREMENT для таблицы `advertisements`
 --
 ALTER TABLE `advertisements`
-  MODIFY `id_advertisements` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_advertisements` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT для таблицы `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
@@ -208,7 +218,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
