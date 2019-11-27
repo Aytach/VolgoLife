@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if ((file_exists($_FILES['myFile']['tmp_name']) || is_uploaded_file($_FILES['myFile']['tmp_name'])) && isset($_POST['assessment'], $_POST['review'], $_POST['upload'])) {
     $id_a = $_POST['id'];
 
