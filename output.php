@@ -1,7 +1,5 @@
 <?php
-
 require 'db.php';
-
 $query = $pdo->query('SELECT a.id_advertisements,
                             a.price,
                             a.name,
