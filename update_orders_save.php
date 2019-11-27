@@ -1,9 +1,7 @@
 <?php
-
+session_start();
 require_once 'db.php';
 
-//файл не меняется //file_exists - Проверяет существование указанного файла или каталога
-//is_uploaded_file - Определяет, был ли файл загружен при помощи HTTP POST
 if((!file_exists($_FILES['myFile']['tmp_name']) || !is_uploaded_file($_FILES['myFile']['tmp_name'])) && isset($_POST['assessment'], $_POST['review'], $_POST['edit']))
 {
     $id_a = $_POST['id'];
