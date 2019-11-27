@@ -27,4 +27,5 @@ if (isset($_POST['edit'], $_POST['email'], $_POST['leadtime'], $_POST['descripti
 
     header("Location: Stends.php");
 }
+
 ?> 
